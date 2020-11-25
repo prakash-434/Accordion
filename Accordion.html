@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Accordion</title>
+  <style>
+    .accordion {
+      width: 600px;
+      margin: 0px auto;
+      padding: 10px;
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      transition: 0.4s;
+      font-size: 20px;
+      margin: 0px auto;
+      display: block;
+      < !--since class accordion has button element and it is a inline element so we need to make it block in order to give some of above css properties -->
+    }
+
+    p {
+      width: 500px;
+      margin: 0px auto;
+      padding: 20px;
+    }
+
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body onload="hide_para()">
+  <!--on loading/refreshing the page hide_para() will be called and it will hide all the three paragraph-->
+  <button onclick="show_para(this)" class="accordion">Section 1</button>
+  <!--on clicking the section 2 button show_para() will be called and it will display below paragraph-->
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+    desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+  <button onclick="show_para(this)" class="accordion">Section 2</button>
+  <!--on clicking the section 2 button show_para() will be called and it will display below paragraph-->
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+    desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+  <button onclick="show_para(this)" class="accordion">Section 3</button>
+  <!--on clicking the section 2 button show_para() will be called and it will display below paragraph-->
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+    desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+  <script type="text/javascript">
+    function hide_para() {
+      //console.log(document.querySelectorAll("p")) = p1 p2 p3
+      para = document.querySelectorAll("p");
+      //console.log(para.length) = 3
+      for (i = 0; i < para.length; i++) {
+        //console.log(i)
+        //console.log(para[i])
+        para[i].style.display = "none";
+      }
+    }
+
+    function show_para(currentEle) {
+      // console.log(currentEle)
+      nextele = currentEle.nextElementSibling.style.display;
+      // console.log(nextele)
+      if (nextele == "none") {
+        currentEle.nextElementSibling.style.display = "block";
+      } else {
+        currentEle.nextElementSibling.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>
